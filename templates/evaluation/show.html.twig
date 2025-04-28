@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails Évaluation{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'Évaluation</h1>
+
+    <ul>
+        <li><strong>Manager :</strong> {{ evaluation.manager.firstname }}</li>
+        <li><strong>Employé :</strong> {{ evaluation.employee.firstname }}</li>
+        <li><strong>Date :</strong> {{ evaluation.dateEvaluation|date('Y-m-d') }}</li>
+        <li><strong>Période :</strong> {{ evaluation.periode }}</li>
+        <li><strong>Note Globale :</strong> {{ evaluation.noteGlobale }}</li>
+        <li><strong>Statut :</strong> {{ evaluation.statut }}</li>
+        <li><strong>Commentaire :</strong> {{ evaluation.commentaire }}</li>
+    </ul>
+
+    <a href="{{ path('app_evaluation_index') }}">Retour à la liste</a>
+    <a href="{{ path('app_evaluation_edit', {'id': evaluation.id}) }}">Modifier</a>
+
+    {{ include('evaluation/_delete_form.html.twig', {'evaluation': evaluation}) }}
+{% endblock %}

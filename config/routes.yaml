@@ -1,5 +1,21 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+employee_dashboard:
+    path: /employee/dashboard
+    controller: App\Controller\EmployeeController::index
+
+manager_dashboard:
+    path: /manager/dashboard
+    controller: App\Controller\ManagerController::index
+
+register:
+    path: /api/register
+    controller: App\Controller\RegistrationController::register
+    methods: POST
+
+app_login:
+  path: /login
+  controller: App\Controller\SecurityController::login

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ObjectifNote{% endblock %}
+
+{% block body %}
+    <h1>Edit ObjectifNote</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">Update</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_objectif_note_index') }}">Back to list</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affectation
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h2>Affectation d'un employé à un manager</h2>
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">{{ message }}</div>
+		{% endfor %}
+
+		{{ form_start(form) }}
+		{{ form_row(form.manager) }}
+		{{ form_row(form.employee) }}
+		<button type="submit" class="btn btn-primary mt-3">Affecter</button>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

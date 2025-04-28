@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feedbacks{% endblock %}
+
+{% block body %}
+<h1>Feedbacks</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Evaluation</th>
+            <th>Manager</th>
+            <th>Employee</th>
+            <th>Commentaire</th>
+            <th>Feedback</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for feedback in feedback %}
+        <tr>
+            <td>{{ feedback.evaluation.id }}</td>
+            <td>{{ feedback.manager.firstName }}</td>
+            <td>{{ feedback.employee.firstName }}</td>
+            <td>{{ feedback.commentaire }}</td>
+            <td>{{ feedback.feedback }}</td>
+            <td>
+                <a href="{{ path('app_feedback_show', {'id': feedback.id}) }}">Show</a>
+                <a href="{{ path('app_feedback_edit', {'id': feedback.id}) }}">Edit</a>
+                <form method="post" action="{{ path('app_feedback_delete', {'id': feedback.id}) }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ feedback.id) }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('app_feedback_new') }}">Create new feedback</a>
+{% endblock %}

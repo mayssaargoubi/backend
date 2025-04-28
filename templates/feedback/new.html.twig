@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Feedback
+{% endblock %}
+
+{% block body %}
+	<h1>Créer un Feedback</h1>
+
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	<button type="submit">Sauvegarder</button>
+	{{ form_end(form) }}
+
+	<a href="{{ path('app_feedback_index') }}">Retour</a>
+{% endblock %}

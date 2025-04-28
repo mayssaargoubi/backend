@@ -1,0 +1,17 @@
+{# templates/registration/register.html.twig #}
+<h1>Register</h1>
+
+{{ form_start(registrationForm) }}
+{{ form_row(registrationForm.firstname) }}
+<!-- Champ prénom -->
+{{ form_row(registrationForm.lastname) }}
+<!-- Champ nom de famille -->
+{{ form_row(registrationForm.email) }}
+<!-- Champ email -->
+{{ form_row(registrationForm.password) }}
+<!-- Champ mot de passe -->
+{{ form_row(registrationForm.role) }}
+<!-- Champ rôle (employee ou manager) -->
+<button class="btn">Register</button>
+<!-- Bouton d'inscription -->
+{{ form_end(registrationForm) }}

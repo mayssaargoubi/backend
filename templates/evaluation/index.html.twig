@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Évaluations{% endblock %}
+
+{% block body %}
+    <h1>Liste des Évaluations</h1>
+
+    <a href="{{ path('app_evaluation_new') }}">Ajouter une nouvelle évaluation</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Manager</th>
+                <th>Employé</th>
+                <th>Date</th>
+                <th>Période</th>
+                <th>Note Globale</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluation in evaluations %}
+            <tr>
+                <td>{{ evaluation.id }}</td>
+                <td>{{ evaluation.manager.firstname }}</td>
+                <td>{{ evaluation.employee.firstname }}</td>
+                <td>{{ evaluation.dateEvaluation|date('Y-m-d') }}</td>
+                <td>{{ evaluation.periode }}</td>
+                <td>{{ evaluation.noteGlobale }}</td>
+                <td>{{ evaluation.statut }}</td>
+                <td>
+                    <a href="{{ path('app_evaluation_show', {'id': evaluation.id}) }}">Voir</a>
+                    <a href="{{ path('app_evaluation_edit', {'id': evaluation.id}) }}">Modifier</a>
+                    {{ include('evaluation/_delete_form.html.twig', {'evaluation': evaluation}) }}
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="8">Aucune évaluation trouvée.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

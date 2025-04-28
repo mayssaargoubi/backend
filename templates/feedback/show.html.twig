@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afficher le Feedback
+{% endblock %}
+
+{% block body %}
+	<h1>Feedback</h1>
+
+	<p>Évaluation :
+		{{ feedback.evaluation.id }}</p>
+	<p>Manager :
+		{{ feedback.managerName.firstName }}</p>
+	<p>Employé :
+		{{ feedback.employeeName.firstName }}</p>
+	<p>Commentaire :
+		{{ feedback.commentaire }}</p>
+	<p>Feedback :
+		{{ feedback.feedback }}</p>
+
+	<a href="{{ path('app_feedback_edit', {'id': feedback.id}) }}">Modifier</a>
+	<a href="{{ path('app_feedback_index') }}">Retour</a>
+{% endblock %}
